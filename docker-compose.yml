@@ -1,0 +1,22 @@
+version: "3"
+services:
+  cache:
+    build: ./cache
+    ports:
+      - 6379:6379
+    volumes: 
+      - cache:/data
+  #ui:
+  #  build: ./ui
+  #  ports: 
+  #    - 3000:3000
+  web-api:
+    build: ./web-api
+    depends_on: 
+      - cache
+    ports: 
+      - 5000:5000
+
+volumes:
+  cache:
+    driver: local
