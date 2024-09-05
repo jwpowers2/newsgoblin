@@ -7,7 +7,7 @@ import {useEffect, useState} from 'react';
 
 export default function Ticker(props) {
     //const data = useLoaderData<typeof loader>();
-    let [data, setData] = useState<any>([])
+    let [data, setData] = useState<any>([{title:""}])
     let [tickerData, setTickerData] = useState<string>("")
     let [category, setCategory] = useState<string>(props.topic);
     let [counter, setCounter] = useState<number>(0)
@@ -17,25 +17,44 @@ export default function Ticker(props) {
         const result = await response.json();
         return JSON.parse(result.data)
     }
-    
+    /*
     useEffect(()=>{
+        
         getTickerData(props.topic)
         .then(data=> {
             setData(data)
+            console.log(data[counter].title)
+            const id = setInterval(()=>{
+                setCounter(counter += 1);
+                if (counter >= data.length) {
+                    setCounter(0)
+                } else {
+                    setTickerData(data[counter].title)
+                }
+                
+            },3000);
             //count = data.length;
         })
         .catch(e=>console.log("error loading ticker data"))
     },[])
-    
+    */
     useEffect(()=>{
+        setCounter(0)
+        setData([{title:""}])
+        setTickerData("")
         getTickerData(props.topic)
         .then(data=> {
             setData(data)
+            setTickerData(data[counter].title)
             //count = data.length;
         })
         .catch(e=>console.log("error loading ticker data"))
+    },[props.topic])
+    /*
+    useEffect(()=>{
+      
         const id = setInterval(()=>{
-            setCounter(counter + 1);
+            setCounter(counter += 1);
             if (counter >= data.length) {
                 setCounter(0)
             } else {
@@ -43,31 +62,44 @@ export default function Ticker(props) {
             }
             
         },3000);
-        //return () => {
-        //    clearTimeout(id)
-        //}
-    },[props.topic])
-    /*
-    useEffect(()=> {
-        setCounter(0)
-        setTickerData("")
-        getTickerData(category)
-        .then(data=>{
-            setData(data)
-            console.log(data)
-        })
-        .catch(e=>console.log("error loading ticker data"))
-    },[props.topic])
+        return () => {
+            clearTimeout(id)
+        }
+    },[])
     */
+   useEffect(()=>{
+        if (counter < data.length-1){
+            setTickerData(data[counter].title)
+        } else {
+            setCounter(0)
+        }
+        setTickerData(data[counter].title)
+   },[counter])
+   useEffect(()=>{
+    getTickerData(props.topic)
+    .then(data=> {
+        setData(data)
+        setTickerData(data[counter].title)
+        //count = data.length;
+    })
+    .catch(e=>console.log("error loading ticker data"))
+        const id = setInterval(()=>{
+            
+            setCounter(counter => counter + 1)
+           
+        },3000)
+        return () => {
+            clearTimeout(id)
+        }
+   },[])
     return (
         <div className="mt-12 h-16">
           
             <div className="flex justify-center mt-2">
               
-                <h2>{props.topic}</h2>
-                {counter}
+                
             {data && 
-                <span className="animate-fade">{tickerData}</span>
+                <span className="animate-fade-in-right">{tickerData}</span>
             }
             </div>
         </div>

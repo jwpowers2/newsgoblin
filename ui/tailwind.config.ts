@@ -5,6 +5,18 @@ export default {
     content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
   theme: {
   	extend: {
+		keyframes:{
+			"fade-in-right": {
+				"0%": {
+					opacity: 0,
+					transform: "translate3d(100%, 0, 0)",
+				},
+				"100%": {
+					opacity: 1,
+					transform: "translate3d(0, 0, 0)",
+				},
+			},
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

@@ -14,7 +14,7 @@ export function CarouselPage(props:any) {
   return (
     <Carousel className="w-full max-w-lg">
       <CarouselContent>
-        {props.data &&
+        {props.data.length > 0 &&
         <>
         {props.data.map((article:any, index:any) => (
           <CarouselItem key={index}>

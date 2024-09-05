@@ -182,9 +182,9 @@ export default function Component() {
     
   },[queryString])
   return (
-    <header className="flex h-16 shrink-0 p-0 md:px-6 w-1/2 mx-auto mt-4">
+    <header className="flex h-16 shrink-0 p-0 md:px-6 w-1/2 mx-auto mt-4 border-b-4 border-slate-200">
       
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-2">
           <div className="flex justify-center">
           <svg id="svg" height="70" width="70">
             <polygon points="10,0 60,0 60,40 50,40 40,40 40,30 30,30 30,20 20,20 20,10 10,10" style={{"fill":"green","stroke":"white","strokeWidth":5}}/>
@@ -200,17 +200,16 @@ export default function Component() {
           </svg>
        
           <Link
-          className="group inline-flex w-max pt-4 justify-center rounded-md bg-white px-4  text-2xl font-medium transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
+          className="group inline-flex w-max pt-4 justify-center rounded-md px-4  text-2xl font-medium transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
           to="/"
           >
             newsgoblin
           </Link>
           </div>
-          <div>
+          <div className="flex justify-end">
           
           <Combobox title="media outlets" func={changeQueryString} data={mediaOutlets}/>
-        </div>
-        <div>
+       
           <Combobox title="news categories" func={changeQueryString} data={categoryList}/>
           </div>
       </div>
