@@ -1,57 +1,40 @@
-# ui
+# Welcome to Remix!
 
-This template should help get you started developing with Vue 3 in Vite.
+- 📖 [Remix docs](https://remix.run/docs)
 
-## Recommended IDE Setup
+## Development
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Run the dev server:
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+```shellscript
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Deployment
+
+First, build your app for production:
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Then run the app in production mode:
 
 ```sh
-npm run test:unit
+npm start
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+Now you'll need to pick a host to deploy it to.
 
-```sh
-npm run test:e2e:dev
-```
+### DIY
 
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
+If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
 
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
+Make sure to deploy the output of `npm run build`
 
-```sh
-npm run build
-npm run test:e2e
-```
+- `build/server`
+- `build/client`
 
-### Lint with [ESLint](https://eslint.org/)
+## Styling
 
-```sh
-npm run lint
-```
+This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.

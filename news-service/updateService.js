@@ -36,15 +36,22 @@ function setMediaRedis(){
 setMediaRedis();
 rclient.quit();
 
-updateMedia.updateMedia();
-updateMedia.updateCategory();
+//updateMedia.updateMedia();
+//updateMedia.updateCategory();
+
+
 
 setInterval(function(){
   
     updateMedia.updateMedia();
-    console.log('updated media');
-    setTimeout(()=>{
-      updateMedia.updateCategory();
-      console.log('updated category');
-    },2000);
-},20000);
+    
+
+    
+},2000);
+
+setInterval(function(){
+  
+  updateMedia.updateCategory();
+  
+},10000);
+

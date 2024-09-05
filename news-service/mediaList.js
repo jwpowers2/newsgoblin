@@ -297,14 +297,17 @@ function MediaList(){
                'xinhua net':'xinhua-net',
                'ynet':'ynet'
                       };
-    this.categoryList = [{'name':'entertainment','query':'entertainment'},
-               {'name':'politics','query':'politics'},
-               {'name':'science','query':'science'},
-                       {'name':'sports','query':'sports'},
-                       {'name':'finance','query':'finance'},
-                       {'name':'music','query':'music'},
-                       {'name':'style','query':'style'},
-                       {'name':'technology','query':'technology'}
+    this.categoryList = [
+                        {'name':'entertainment','query':'entertainment'},
+                        {'name':'politics','query':'politics'},
+                        {'name':'science','query':'science'},
+                        {'name':'sports','query':'sports'},
+                        {'name':'finance','query':'finance'},
+                        {'name':'music','query':'music'},
+                        {'name':'style','query':'style'},
+                        {'name':'technology','query':'technology'},
+                        {'name': 'cryptocurrency','query':'cryptocurrency'},
+                        {'name':'artificial intelligence','query':'artificial intelligence'}
                ]
   }
   module.exports = MediaList;
