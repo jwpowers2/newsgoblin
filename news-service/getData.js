@@ -3,8 +3,8 @@ let process = require("process")
 
 function getData(){
 
-  this.apiKey = "315bb12b5850439d8074d9ad4d5de9de";
-  //this.apiKey = process.env.NEWS_API_KEY
+  //this.apiKey = "315bb12b5850439d8074d9ad4d5de9de";
+  this.apiKey = process.env.NEWS_API_KEY
   //this.categoryMap = {'network':'sources','topic':'category'};
 
   this.getMediaData = function(title,callback){

@@ -47,11 +47,11 @@ setInterval(function(){
     
 
     
-},2000);
+},20000);
 
 setInterval(function(){
   
   updateMedia.updateCategory();
   
-},10000);
+},100000);
 

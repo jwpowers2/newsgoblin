@@ -25,7 +25,13 @@ function UpdateMedia(){
     // do fetch here
     this.getData.getMediaData(current.query, (response)=>{
       console.log(response.length)
-      this.redisClient.set(current.query, JSON.stringify(response))
+      try {
+        this.redisClient.set(current.query, JSON.stringify(response))
+      } catch (e) {
+        console.log(e);
+      }
+      
+      
     })
     console.log(`media outlet is: ${current.name}`)
     

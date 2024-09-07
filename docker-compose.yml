@@ -6,16 +6,25 @@ services:
       - 6379:6379
     volumes: 
       - cache:/data
-  #ui:
-  #  build: ./ui
-  #  ports: 
-  #    - 3000:3000
+  ui:
+    build: ./ui
+    ports: 
+      - 3000:3000
   web-api:
     build: ./web-api
     depends_on: 
       - cache
     ports: 
       - 5000:5000
+  news-service:
+    build: ./news-service
+    depends_on: 
+      - cache
+    environment:
+      NEWS_API_KEY: 315bb12b5850439d8074d9ad4d5de9de
+      NODE_ENV: 'DEV'
+      DEV_CACHE: 'cache'
+      PROD_CACHE: ''
 
 volumes:
   cache:
