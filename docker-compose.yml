@@ -21,7 +21,7 @@ services:
     depends_on: 
       - cache
     environment:
-      NEWS_API_KEY: 315bb12b5850439d8074d9ad4d5de9de
+      NEWS_API_KEY: ''
       NODE_ENV: 'DEV'
       DEV_CACHE: 'cache'
       PROD_CACHE: ''
